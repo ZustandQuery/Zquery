@@ -1,0 +1,32 @@
+{
+  "name": "zquery",
+  "version": "1.0.0",
+  "description": "Using server state in zustand",
+  "license": "MIT",
+  "type": "module",
+  "private": false,
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "vite build",
+    "publish:patch": "npm version patch && npm publish",
+    "publish:minor": "npm version minor && npm publish",
+    "publish:major": "npm version major && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZustandQuery/Zquery"
+  },
+  "homepage": "https://github.com/ZustandQuery/Zquery",
+  "keywords": [
+    "vite",
+    "typescript",
+    "zustand",
+    "query",
+    "server state"
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0"
+  }
+}
