@@ -1,54 +1,65 @@
-# React + TypeScript + Vite
+<h1 align="left">ZQuery</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+###
 
-Currently, two official plugins are available:
+<div align="center">
+  <img height="200" src="https://github.com/user-attachments/assets/f8d06d44-e020-4a30-919c-532fce4dc8fe"  />
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+###
 
-## Expanding the ESLint configuration
+The `ZQuery` middleware efficiently manages complex asynchronous functions.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+###
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+<h2 align="left">Types</h2>
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+###
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+<h3 align="left">Signature</h3>
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+###
+
+<div align="center">
+  <img height="200" src="https://github.com/user-attachments/assets/5ebef45c-5457-4c04-8be0-e67491a37c73"  />
+</div>
+
+###
+
+<h2 align="left">Reference</h2>
+
+###
+
+### `useZQuery(key, queryFn, options)`
+
+###
+
+## Parameters
+
+- `key` : A key name to distinguish fetched data. This key must be in the form of an array.
+- `queryFn` : A function that calls data from the server.
+- `options` : An object to define query options.
+  - optional `staleTime` : Time before the data staled.
+  - optional `retry` : Not yet.
+  - optional `enable` : Not yet.
+
+## Returns
+
+- `useZQuery` : Return the data and its state.
+- `data` : Returns the data received from the server.
+- `isLoading` : Returns the state during data fetching.
+- `error` : Returns details when an error occurs.
+
+## Usage
+
+First, make a query statement
+
+<div align="center">
+  <img height="400" src="https://github.com/user-attachments/assets/9451b9fc-ddfe-45e5-be9e-24f0512aa99e"  />
+</div>
+
+Then, while your data is fresh, you can always use it without fetch.
+
+<div align="center">
+  <img height="400" src="https://github.com/user-attachments/assets/083e25a4-77e8-412c-9cc0-40cb59f1453e"  />
+</div>
