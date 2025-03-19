@@ -4,8 +4,8 @@ import { persist } from "zustand/middleware";
 
 export type QueryKey = string | unknown[];
 
-interface QueryState<TData> {
-  data: TData | null;
+interface QueryState<T> {
+  data: T | null;
   error: Error | null;
   isLoading: boolean;
   lastUpdated: number;
@@ -13,9 +13,9 @@ interface QueryState<TData> {
 
 interface QueryStoreState {
   queries: Record<string, QueryState<unknown>>;
-  fetchData: <TData>(
+  fetchData: <T>(
     key: QueryKey,
-    queryFn: () => Promise<TData>,
+    queryFn: () => Promise<T>,
     options?: { staleTime?: number }
   ) => Promise<void>;
 }
@@ -89,9 +89,9 @@ export const useQueryStore = create<QueryStoreState>()(
   })
 );
 
-export const useQuery = <TData>(
+export const useZQuery = <T>(
   key: QueryKey,
-  queryFn: () => Promise<TData>,
+  queryFn: () => Promise<T>,
   options?: { staleTime?: number }
 ) => {
   const { fetchData, queries } = useQueryStore();
@@ -102,7 +102,7 @@ export const useQuery = <TData>(
   }, [serializedKey]);
 
   return {
-    data: queries[serializedKey]?.data as TData | undefined,
+    data: queries[serializedKey]?.data as T | undefined,
     isLoading: queries[serializedKey]?.isLoading ?? true,
     error: queries[serializedKey]?.error,
   };
